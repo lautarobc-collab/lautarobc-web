@@ -146,7 +146,7 @@ export const es: Dict = {
     heading: "Perfil",
     paragraphs: [
       "Más de 10 años en restauración uniendo operación, control del margen y tecnología en hoteles, alta gastronomía, beach clubs y delivery.",
-      "Mi terreno son las aperturas y la alta gastronomía, como puente entre la cocina y los números: el equipo aporta la creación y yo le pongo coste, rentabilidad y un lugar en una carta equilibrada. Además, implanto e integro TPV y gestión de stock para que los datos lleguen a quien decide.",
+      "Mi terreno son las aperturas y la alta gastronomía, como puente entre la cocina y los números: el equipo aporta la creación y yo le pongo coste, rentabilidad y un lugar en una carta equilibrada.",
     ],
   },
   experience: {
@@ -184,7 +184,7 @@ export const es: Dict = {
         company: "Proyectos independientes",
         place: "Vigo y Madrid",
         dates: "2023 – 2024",
-        note: "Asesorías junto al chef Miguel Fernández Vida, además de ferias gastronómicas y formación en diseño UX.",
+        note: "Asesorías junto al chef Miguel Fernández Vidal, además de ferias gastronómicas y formación en diseño UX.",
         tags: ["Apertura", "Asesoría", "Control de costes"],
         bullets: [
           "Voltarei (Vigo): concepto de cocina gallega tradicional para tapear y compartir, con un aire más moderno. Diseño de menús, escandallos y sistema de control de costes.",
@@ -236,7 +236,7 @@ export const es: Dict = {
         company: "Restaurante Morgana",
         place: "Madrid",
         dates: "Sep 2017 – Feb 2019",
-        note: "Cocina gallega de fusión en Chueca, con el chef Miguel Fernández Vida.",
+        note: "Cocina gallega de fusión en Chueca, con el chef Miguel Fernández Vidal.",
         tags: ["Apertura", "Sala y barra"],
         bullets: [
           "Primer empleado: apertura y puesta en marcha, cubriendo todas las posiciones.",
@@ -394,7 +394,7 @@ export const en: Dict = {
     heading: "Profile",
     paragraphs: [
       "Over 10 years in hospitality bringing together operations, margin control and technology across hotels, fine dining, beach clubs and delivery.",
-      "My ground is openings and fine dining, as the bridge between the kitchen and the numbers: the team brings the creativity, and I add cost, profitability and a place on a balanced menu. I also roll out and integrate POS and stock management systems so that data reaches the people who make decisions.",
+      "My ground is openings and fine dining, as the bridge between the kitchen and the numbers: the team brings the creativity, and I add cost, profitability and a place on a balanced menu.",
     ],
   },
   experience: {
@@ -432,7 +432,7 @@ export const en: Dict = {
         company: "Independent projects",
         place: "Vigo and Madrid",
         dates: "2023 – 2024",
-        note: "Consulting alongside chef Miguel Fernández Vida, plus food fairs and UX design studies.",
+        note: "Consulting alongside chef Miguel Fernández Vidal, plus food fairs and UX design studies.",
         tags: ["Opening", "Consulting", "Cost control"],
         bullets: [
           "Voltarei (Vigo): traditional Galician cuisine for tapas and sharing, with a more modern touch. Menu design, recipe costing and cost control system.",
@@ -484,7 +484,7 @@ export const en: Dict = {
         company: "Restaurante Morgana",
         place: "Madrid",
         dates: "Sep 2017 – Feb 2019",
-        note: "Galician fusion cuisine in Chueca, with chef Miguel Fernández Vida.",
+        note: "Galician fusion cuisine in Chueca, with chef Miguel Fernández Vidal.",
         tags: ["Opening", "Floor and bar"],
         bullets: [
           "First employee: opening and launch, covering every position.",
