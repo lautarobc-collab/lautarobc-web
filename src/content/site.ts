@@ -139,14 +139,14 @@ export const es: Dict = {
   ],
   facts: [
     { value: "+10", label: "años en restauración" },
-    { value: "3", label: "aperturas: Madrid, Ginebra y Quito" },
+    { value: "4", label: "aperturas: Madrid, Ginebra, Quito y Vigo" },
     { value: "6", label: "países: España, Suiza, Ecuador, Argentina, Francia y Países Bajos" },
   ],
   profile: {
     heading: "Perfil",
     paragraphs: [
-      "Más de 10 años en restauración: sala, cocina, compras y control de costes en hoteles, alta gastronomía, beach clubs y delivery.",
-      "Mi terreno son las aperturas y la alta gastronomía, unidas al control del margen y a la tecnología: implantación de TPV y gestión de stock, datos fiables para decidir y uso de la IA en el día a día de la operación.",
+      "Más de 10 años en restauración uniendo operación, control del margen y tecnología en hoteles, alta gastronomía, beach clubs y delivery.",
+      "Mi terreno son las aperturas y la alta gastronomía. Mi diferencia: convertir los datos en decisiones. Implanto e integro TPV y gestión de stock, y doy a los equipos herramientas sencillas —una fórmula, un atajo, una tabla dinámica— que les ahorran tiempo cada día.",
     ],
   },
   experience: {
@@ -161,7 +161,7 @@ export const es: Dict = {
         tags: ["Multi-local", "Control de costes", "Tecnología"],
         bullets: [
           "Implantación de Ágora TPV en todos los locales como key user: desde la decisión y la puesta en marcha hasta el soporte técnico posterior.",
-          "Integración con G-Stock, CoverManager y A3; depuración de la base de datos de ingredientes y recetas para obtener costes reales y datos fiables para el resto de departamentos.",
+          "Integración con G-Stock, CoverManager y A3 y depuración de la base de datos de ingredientes y recetas: datos reales que antes no se aprovechaban, integrados en el trabajo de cada departamento.",
           "Food & beverage cost por local: coste teórico vs. real, desviaciones y acciones correctoras; escandallos con cocina (I+D) e ingeniería de menú.",
           "Cierres de mes y control de compras: inventarios, albaranes, facturas y homologación de proveedores.",
         ],
@@ -177,6 +177,19 @@ export const es: Dict = {
           "Dirección de sala en 4 puntos de venta: buffet (desayuno, comida, cena, media mañana y merienda), bar de piscina y bar de noche con zona de entretenimiento.",
           "Pedidos, inventarios y control de costes.",
           "Atención al cliente y resolución de incidencias.",
+        ],
+      },
+      {
+        role: "Asesor gastronómico",
+        company: "Proyectos independientes",
+        place: "Vigo y Madrid",
+        dates: "2023 – 2024",
+        note: "Asesorías a restaurantes, en paralelo a mi formación en diseño UX.",
+        tags: ["Apertura", "Asesoría"],
+        bullets: [
+          "Apertura de Voltarei, restaurante de cocina gallega en Vigo.",
+          "Asesoría a un restaurante en Madrid.",
+          "Ferias gastronómicas junto al chef Miguel Fernández Vida.",
         ],
       },
       {
@@ -198,11 +211,11 @@ export const es: Dict = {
         place: "Málaga",
         dates: "Jun 2021 – Dic 2022",
         note: "Proyecto de delivery La Gran Familia Mediterránea.",
-        tags: ["Control de costes", "Delivery"],
+        tags: ["Multi-local", "Control de costes", "Delivery"],
         bullets: [
-          "Sistemas de control de costes, inventarios y cierres de mes.",
-          "Facturación automatizada junto a Spoonlab.",
-          "Análisis de ventas, procedimientos, logística y control de incidencias.",
+          "Control de costes durante la expansión del proyecto: de menos de 10 a más de 20 restaurantes en año y medio.",
+          "Sistemas de control de costes, inventarios y cierres de mes, con método para facturar y cerrar decenas de locales a la vez.",
+          "Facturación automatizada junto a Spoonlab; análisis de ventas, procedimientos y logística.",
         ],
       },
       {
@@ -374,14 +387,14 @@ export const en: Dict = {
   ],
   facts: [
     { value: "10+", label: "years in hospitality" },
-    { value: "3", label: "openings: Madrid, Geneva and Quito" },
+    { value: "4", label: "openings: Madrid, Geneva, Quito and Vigo" },
     { value: "6", label: "countries: Spain, Switzerland, Ecuador, Argentina, France and the Netherlands" },
   ],
   profile: {
     heading: "Profile",
     paragraphs: [
-      "Over 10 years in hospitality: floor, kitchen, purchasing and cost control across hotels, fine dining, beach clubs and delivery.",
-      "My ground is openings and fine dining, combined with margin control and technology: POS and stock management rollouts, reliable data for decision-making and everyday use of AI in operations.",
+      "Over 10 years in hospitality bringing together operations, margin control and technology across hotels, fine dining, beach clubs and delivery.",
+      "My ground is openings and fine dining. My edge: turning data into decisions. I roll out and integrate POS and stock management systems, and give teams simple tools — a formula, a shortcut, a pivot table — that save them time every day.",
     ],
   },
   experience: {
@@ -396,7 +409,7 @@ export const en: Dict = {
         tags: ["Multi-venue", "Cost control", "Technology"],
         bullets: [
           "Rollout of Ágora POS across all venues as key user: from the decision and go-live to ongoing technical support.",
-          "Integration with G-Stock, CoverManager and A3; clean-up of the ingredient and recipe database to obtain actual costs and reliable data for other departments.",
+          "Integration with G-Stock, CoverManager and A3 and clean-up of the ingredient and recipe database: actual data that was previously unused, built into every department's work.",
           "Food & beverage cost per venue: theoretical vs. actual cost, variances and corrective actions; recipe costing with the kitchen (R&D) and menu engineering.",
           "Month-end closing and purchasing control: inventories, delivery notes, invoices and supplier approval.",
         ],
@@ -412,6 +425,19 @@ export const en: Dict = {
           "Front-of-house management across 4 outlets: buffet (breakfast, lunch, dinner, mid-morning and afternoon), pool bar and night bar with entertainment area.",
           "Ordering, inventories and cost control.",
           "Guest service and incident resolution.",
+        ],
+      },
+      {
+        role: "Restaurant Consultant",
+        company: "Independent projects",
+        place: "Vigo and Madrid",
+        dates: "2023 – 2024",
+        note: "Restaurant consulting, alongside my UX design studies.",
+        tags: ["Opening", "Consulting"],
+        bullets: [
+          "Opening of Voltarei, a Galician restaurant in Vigo.",
+          "Consulting for a restaurant in Madrid.",
+          "Food fairs alongside chef Miguel Fernández Vida.",
         ],
       },
       {
@@ -433,11 +459,11 @@ export const en: Dict = {
         place: "Málaga",
         dates: "Jun 2021 – Dec 2022",
         note: "La Gran Familia Mediterránea delivery project.",
-        tags: ["Cost control", "Delivery"],
+        tags: ["Multi-venue", "Cost control", "Delivery"],
         bullets: [
-          "Cost control, inventory and month-end closing systems.",
-          "Automated invoicing together with Spoonlab.",
-          "Sales analysis, procedures, logistics and incident management.",
+          "Cost control through the project's expansion: from fewer than 10 to more than 20 restaurants in a year and a half.",
+          "Cost control, inventory and month-end closing systems, with a disciplined method to invoice and close dozens of venues at once.",
+          "Automated invoicing together with Spoonlab; sales analysis, procedures and logistics.",
         ],
       },
       {

@@ -41,8 +41,8 @@ function jobHtml(j: Job) {
 /** CV de diseño a dos columnas, 2 páginas A4. */
 function designHtml(t: Dict, withPhone: boolean) {
   const jobs = t.experience.jobs;
-  const p1 = jobs.slice(0, 3);
-  const p2 = jobs.slice(3);
+  const p1 = jobs.slice(0, 4);
+  const p2 = jobs.slice(4);
   return `<!doctype html><html lang="${t.htmlLang}"><head><meta charset="utf-8"><title>CV ${esc(t.name)}</title><style>${css}</style></head><body>
 <div class="page">
   <aside class="side">
@@ -167,7 +167,11 @@ for (const j of jobs) {
   if (j.design) {
     // Aviso si el contenido no cabe en alguna página del diseño
     const overflow = await page.evaluate(() =>
-      Array.from(document.querySelectorAll(".main, .side")).some((el) => el.scrollHeight > el.clientHeight + 1),
+      Array.from(document.querySelectorAll(".page")).some((pg) =>
+        Array.from(pg.querySelectorAll(".main > *, .side > *")).some(
+          (el) => (el as HTMLElement).getBoundingClientRect().bottom > pg.getBoundingClientRect().bottom - 8,
+        ),
+      ),
     );
     if (overflow) console.warn("⚠ Contenido desbordado en", j.file);
   }

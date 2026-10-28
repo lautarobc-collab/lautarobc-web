@@ -72,3 +72,14 @@
   .tags { display: none; }
   .ongoing { font-size: 9pt; line-height: 1.45; margin-top: 2mm; color: var(--muted); }
   .ongoing b { color: var(--green); font-size: 7.6pt; letter-spacing: 0.15em; text-transform: uppercase; margin-right: 2mm; }
+
+  /* Ajuste de densidad para que todo quepa en 2 páginas */
+  .job { margin-bottom: 4mm; }
+  .job li { font-size: 8.8pt; line-height: 1.4; margin-bottom: 0.6mm; }
+  .note { font-size: 8.3pt; margin-top: 1mm; }
+  .job ul { margin-top: 1.3mm; }
+  .main h2 { margin: 5.5mm 0 2.6mm; }
+  h1 { font-size: 28pt; }
+  .subtitle { margin-top: 3.5mm; padding-bottom: 4.5mm; }
+  .profile p { font-size: 9.2pt; line-height: 1.45; margin-bottom: 1.8mm; }
+  .main { padding-bottom: 14mm; }
