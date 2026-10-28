@@ -195,7 +195,7 @@ export const es: Dict = {
       {
         title: "Automatización de albaranes",
         context: "Grupo Dani García",
-        text: "Piloto de lectura de albaranes por foto con tSpoonLab, conectado con Navision y la contabilidad, trabajando junto al equipo de desarrollo.",
+        text: "Desarrollo, junto al fundador y el equipo de tSpoonLab, de la lectura de albaranes por foto conectada con Navision y la contabilidad, con La Gran Familia Mediterránea como piloto.",
       },
       {
         title: "Herramientas propias",
@@ -498,7 +498,7 @@ export const en: Dict = {
       {
         title: "Delivery note automation",
         context: "Grupo Dani García",
-        text: "Pilot reading delivery notes from photos with tSpoonLab, connected to Navision and accounting, working alongside the development team.",
+        text: "Development, with tSpoonLab's founder and team, of photo-based delivery note capture connected to Navision and accounting, with La Gran Familia Mediterránea as the pilot.",
       },
       {
         title: "In-house tools",
