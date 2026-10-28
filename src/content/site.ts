@@ -100,7 +100,7 @@ export const es: Dict = {
   hero: { downloadCv: "Descargar CV", contact: "Contactar", linkedin: "LinkedIn" },
   facts: [
     { value: "+10", label: "años en restauración" },
-    { value: "5", label: "países: España, Suiza, Ecuador, Argentina y Francia" },
+    { value: "6", label: "países: España, Suiza, Ecuador, Argentina, Francia y Países Bajos" },
     { value: "4", label: "idiomas" },
   ],
   profile: {
@@ -200,7 +200,7 @@ export const es: Dict = {
       heading: "Etapa formativa",
       dates: "2009 – 2016",
       items: [
-        "NH Hotel Group: becario de compras en las oficinas centrales de NH Mercosur (Buenos Aires); prácticas de F&B y recepción.",
+        "NH Hotel Group: becario de compras en las oficinas centrales de NH Mercosur (Buenos Aires); prácticas de F&B y recepción; cocina en NH Zandvoort (Países Bajos).",
         "Palladium Hotel Group, Ushuaïa Ibiza Beach Hotel: room service.",
         "Finca Cortesín: sala y eventos.",
         "Centre International d'Antibes: administración.",
@@ -290,7 +290,7 @@ export const en: Dict = {
   hero: { downloadCv: "Download CV", contact: "Get in touch", linkedin: "LinkedIn" },
   facts: [
     { value: "10+", label: "years in hospitality" },
-    { value: "5", label: "countries: Spain, Switzerland, Ecuador, Argentina and France" },
+    { value: "6", label: "countries: Spain, Switzerland, Ecuador, Argentina, France and the Netherlands" },
     { value: "4", label: "languages" },
   ],
   profile: {
@@ -387,7 +387,7 @@ export const en: Dict = {
       heading: "Early career and training",
       dates: "2009 – 2016",
       items: [
-        "NH Hotel Group: purchasing intern at the NH Mercosur head office (Buenos Aires); F&B and front desk internships.",
+        "NH Hotel Group: purchasing intern at the NH Mercosur head office (Buenos Aires); F&B and front desk internships; kitchen at NH Zandvoort (Netherlands).",
         "Palladium Hotel Group, Ushuaïa Ibiza Beach Hotel: room service.",
         "Finca Cortesín: floor service and events.",
         "Centre International d'Antibes: administration.",
