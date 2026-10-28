@@ -1,0 +1,398 @@
+import type { CSSProperties } from "react";
+import BackgroundPaths from "./background-paths";
+import RevealObserver from "./reveal-observer";
+import SiteHeader from "./site-header";
+import { IconArrow, IconDownload, IconLinkedIn, IconMail, IconPin } from "./icons";
+import { CV_PDF, EMAIL, LINKEDIN, SITE_URL, type Dict } from "@/content/site";
+
+const delay = (ms: number) => ({ "--reveal-delay": `${ms}ms` }) as CSSProperties;
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
+
+export default function SitePage({ t }: { t: Dict }) {
+  const ids = Object.fromEntries(t.nav.map((n, i) => [i, n.id]));
+  const [idProfile, idExperience, idSkills, idEducation, idContact] = [0, 1, 2, 3, 4].map(
+    (i) => ids[i],
+  );
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: t.name,
+    jobTitle: t.title,
+    url: SITE_URL + (t.path === "/" ? "" : t.path),
+    image: `${SITE_URL}/img/lautaro.jpg`,
+    email: `mailto:${EMAIL}`,
+    sameAs: [LINKEDIN],
+    address: { "@type": "PostalAddress", addressLocality: "Málaga", addressCountry: "ES" },
+    alumniOf: { "@type": "EducationalOrganization", name: "Centro Superior de Hostelería de Galicia" },
+    knowsLanguage: ["es", "gl", "en", "fr"],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <SiteHeader
+        nav={t.nav}
+        langSwitch={t.langSwitch}
+        cvLabel="CV"
+        cvHref={CV_PDF}
+        homeLabel={t.name}
+      />
+      <RevealObserver />
+
+      <main id="top">
+        {/* ───────────── Hero ───────────── */}
+        <BackgroundPaths
+          className="bg-stone text-green/75"
+          count={32}
+          angle={-6}
+          speed={0.55}
+          spread={0.9}
+        >
+          <section className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-28 pb-16 sm:px-6 md:min-h-[88svh] md:grid-cols-[1.25fr_0.75fr] md:pt-28 md:pb-16">
+            <div className="order-2 md:order-1">
+              <p
+                className="hero-in text-[0.7rem] font-bold tracking-[0.2em] text-green uppercase sm:text-xs"
+                style={d(80)}
+              >
+                {t.title}
+              </p>
+              <h1
+                className="hero-in mt-5 text-[2.75rem] leading-[0.98] font-extrabold tracking-[-0.035em] text-ink sm:text-6xl lg:text-7xl"
+                style={d(160)}
+              >
+                Lautaro
+                <br />
+                Barrera Cisterna
+              </h1>
+              <p
+                className="hero-in mt-6 max-w-xl text-lg leading-relaxed text-muted"
+                style={d(260)}
+              >
+                {t.profile.paragraphs[0]}
+              </p>
+              <p
+                className="hero-in mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink/80"
+                style={d(320)}
+              >
+                <IconPin width={16} height={16} className="text-green" />
+                {t.location}
+              </p>
+
+              <div className="hero-in mt-8 flex flex-wrap items-center gap-3" style={d(400)}>
+                <a
+                  href={CV_PDF}
+                  download
+                  className="group inline-flex items-center gap-2 rounded-full bg-green px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-10px_rgba(46,94,78,0.7)] transition-all hover:-translate-y-0.5 hover:bg-green-deep"
+                >
+                  <IconDownload className="transition-transform group-hover:translate-y-0.5" />
+                  {t.hero.downloadCv}
+                </a>
+                <a
+                  href={`#${idContact}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-5 py-3 text-sm font-semibold text-ink backdrop-blur transition-all hover:-translate-y-0.5 hover:border-green hover:text-green"
+                >
+                  <IconMail />
+                  {t.hero.contact}
+                </a>
+                <a
+                  href={LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.hero.linkedin}
+                  className="grid size-11 place-items-center rounded-full border border-ink/15 bg-white/70 text-ink backdrop-blur transition-all hover:-translate-y-0.5 hover:border-green hover:text-green"
+                >
+                  <IconLinkedIn />
+                </a>
+              </div>
+            </div>
+
+            <div className="order-1 flex justify-center md:order-2 md:justify-end">
+              <div className="hero-in relative size-52 sm:size-64 lg:size-80" style={d(0)}>
+                {/* anillo discontinuo que gira despacio */}
+                <svg
+                  className="ring-spin absolute -inset-4 size-[calc(100%+2rem)] text-green/45"
+                  viewBox="0 0 100 100"
+                  aria-hidden
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="49"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="0.35"
+                    strokeDasharray="1.2 2.2"
+                  />
+                </svg>
+                <div className="absolute inset-0 rounded-full bg-white p-[5px] shadow-[0_30px_60px_-30px_rgba(28,42,46,0.45)] ring-2 ring-green">
+                  <picture>
+                    <source srcSet="/img/lautaro-400.webp 400w, /img/lautaro.webp 800w" type="image/webp" />
+                    <img
+                      src="/img/lautaro.jpg"
+                      alt={t.name}
+                      width={800}
+                      height={800}
+                      fetchPriority="high"
+                      sizes="(min-width: 1024px) 320px, 256px"
+                      className="size-full rounded-full object-cover"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </BackgroundPaths>
+
+        {/* ───────────── Perfil ───────────── */}
+        <section id={idProfile} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+          <h2 className="section-label reveal">{t.profile.heading}</h2>
+          <p className="reveal mt-10 max-w-4xl text-2xl leading-snug font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
+            {t.profile.paragraphs[1]}
+          </p>
+          <dl className="reveal mt-12 grid gap-px overflow-hidden rounded-2xl border border-stone-line bg-stone-line sm:grid-cols-3" style={delay(120)}>
+            {t.facts.map((f) => (
+              <div key={f.label} className="flex items-baseline gap-3 bg-white px-5 py-5">
+                <dt className="text-4xl font-extrabold tracking-tight text-green">{f.value}</dt>
+                <dd className="text-sm leading-snug text-muted">{f.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        {/* ───────────── Experiencia ───────────── */}
+        <section id={idExperience} className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:pb-28">
+          <h2 className="section-label reveal">{t.experience.heading}</h2>
+
+          <ol className="relative mt-12 space-y-4">
+            {/* raíl vertical */}
+            <span
+              aria-hidden
+              className="absolute top-2 bottom-2 left-[7px] w-px bg-gradient-to-b from-green via-green/30 to-transparent md:left-[211px]"
+            />
+            {t.experience.jobs.map((job, i) => (
+              <li key={`${job.company}-${job.dates}`} className="reveal relative grid gap-3 pl-9 md:grid-cols-[180px_1fr] md:gap-14 md:pl-0" style={delay(Math.min(i, 3) * 60)}>
+                <span
+                  aria-hidden
+                  className="absolute top-[0.55rem] left-0 size-[15px] rounded-full border-[3px] border-white bg-green ring-1 ring-green/40 md:left-[204px]"
+                />
+                <div className="md:pt-1 md:text-right">
+                  <p className="text-sm font-bold text-green tabular-nums">{job.dates}</p>
+                  <p className="mt-0.5 text-sm text-muted">{job.place}</p>
+                </div>
+                <article className="group rounded-2xl border border-transparent p-0 transition-all duration-300 md:-mt-4 md:p-6 md:hover:border-stone-line md:hover:bg-stone/60">
+                  <h3 className="text-xl font-bold tracking-tight text-ink">{job.role}</h3>
+                  <p className="mt-0.5 font-semibold text-muted">{job.company}</p>
+                  {job.note && (
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted italic">{job.note}</p>
+                  )}
+                  <ul className="mt-4 space-y-2">
+                    {job.bullets.map((b) => (
+                      <li key={b} className="flex gap-3 text-[0.95rem] leading-relaxed text-ink/90">
+                        <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-green" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </li>
+            ))}
+
+            {/* Etapa formativa */}
+            <li className="reveal relative grid gap-3 pl-9 md:grid-cols-[180px_1fr] md:gap-14 md:pl-0">
+              <span
+                aria-hidden
+                className="absolute top-[0.55rem] left-0 size-[15px] rounded-full border-[3px] border-white bg-stone-line ring-1 ring-green/30 md:left-[204px]"
+              />
+              <div className="md:pt-1 md:text-right">
+                <p className="text-sm font-bold text-green tabular-nums">{t.experience.early.dates}</p>
+              </div>
+              <article className="rounded-2xl bg-stone p-6 md:-mt-4">
+                <h3 className="text-xl font-bold tracking-tight text-ink">{t.experience.early.heading}</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {t.experience.early.items.map((it) => {
+                    const [head, ...rest] = it.split(":");
+                    return (
+                      <li key={it} className="rounded-xl bg-white p-4 text-[0.92rem] leading-relaxed">
+                        <span className="font-semibold text-ink">{head}</span>
+                        {rest.length > 0 && <span className="text-muted">:{rest.join(":")}</span>}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </article>
+            </li>
+          </ol>
+        </section>
+
+        {/* ───────────── Competencias ───────────── */}
+        <section id={idSkills} className="bg-stone">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+            <h2 className="section-label reveal">{t.skills.heading}</h2>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2">
+              {t.skills.groups.map((g, i) => (
+                <div
+                  key={g.title}
+                  className="reveal group relative overflow-hidden rounded-2xl border border-stone-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(28,42,46,0.35)]"
+                  style={delay(i * 90)}
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-green transition-transform duration-500 group-hover:scale-x-100"
+                  />
+                  <p className="text-xs font-bold tracking-[0.2em] text-green/70 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-3 text-xl font-bold tracking-tight text-ink">{g.title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted">{g.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="reveal mt-10">
+              <p className="text-sm font-semibold text-ink">{t.skills.systemsTitle}</p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {t.skills.systems.map((s) => (
+                  <li
+                    key={s}
+                    className="rounded-full border border-green/25 bg-white px-4 py-2 text-sm font-medium text-green"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────── Formación + Idiomas ───────────── */}
+        <section id={idEducation} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+          <div className="grid gap-16 md:grid-cols-2 md:gap-12">
+            <div>
+              <h2 className="section-label reveal">{t.education.heading}</h2>
+              <div className="reveal mt-10">
+                <p className="text-sm font-bold text-green tabular-nums">{t.education.dates}</p>
+                <h3 className="mt-2 text-2xl font-bold tracking-tight text-ink">{t.education.degree}</h3>
+                <p className="mt-2 font-semibold text-muted">{t.education.school}</p>
+                <p className="mt-4 leading-relaxed text-ink/90">{t.education.detail}</p>
+              </div>
+            </div>
+            <div>
+              <h2 className="section-label reveal">{t.languages.heading}</h2>
+              <ul className="mt-10 space-y-5">
+                {t.languages.items.map((l, i) => (
+                  <li key={l.name} className="reveal" style={delay(i * 70)}>
+                    <div className="flex items-baseline justify-between">
+                      <span className="font-semibold text-ink">{l.name}</span>
+                      <span className="text-sm font-medium text-muted">{l.level}</span>
+                    </div>
+                    {/* escala MCER de 6 niveles (A1–C2); nativo ocupa la escala completa */}
+                    <div className="mt-2 grid grid-cols-6 gap-1" aria-hidden>
+                      {Array.from({ length: 6 }).map((_, k) => (
+                        <span
+                          key={k}
+                          className={k < l.cefr ? "h-1.5 rounded-full bg-green" : "h-1.5 rounded-full bg-stone-line"}
+                        />
+                      ))}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────── Portfolio (fase 2; oculto mientras esté vacío) ───────────── */}
+        {t.portfolio.items.length > 0 && (
+          <section id="portfolio" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:pb-28">
+            <h2 className="section-label reveal">{t.portfolio.heading}</h2>
+            <p className="reveal mt-6 text-muted">{t.portfolio.intro}</p>
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {t.portfolio.items.map((p) => (
+                <li key={p.title} className="reveal overflow-hidden rounded-2xl border border-stone-line bg-white">
+                  {p.image && <img src={p.image} alt={p.title} className="aspect-[4/3] w-full object-cover" loading="lazy" />}
+                  <div className="p-5">
+                    <p className="text-xs font-bold tracking-widest text-green uppercase">{p.category}</p>
+                    <h3 className="mt-2 font-bold text-ink">{p.title}</h3>
+                    <p className="mt-1 text-sm text-muted">{p.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* ───────────── Contacto ───────────── */}
+        <section id={idContact} className="relative overflow-hidden bg-green text-white">
+          <BackgroundPaths className="absolute inset-0 text-white" count={24} angle={8} speed={0.35} interactive={false}>
+            {null}
+          </BackgroundPaths>
+          <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+            <h2 className="section-label reveal !text-white/80">{t.contact.heading}</h2>
+            <div className="mt-10 grid gap-12 md:grid-cols-[1.3fr_0.7fr]">
+              <div className="reveal">
+                <p className="text-sm font-semibold tracking-wide text-white/70">{t.contact.lead}</p>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="group mt-4 inline-flex items-center gap-3 text-[1.6rem] font-extrabold tracking-[-0.02em] break-all sm:text-5xl"
+                >
+                  <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_2px] bg-bottom-left bg-no-repeat pb-1 transition-[background-size] duration-500 group-hover:bg-[length:100%_2px]">
+                    {EMAIL}
+                  </span>
+                  <IconArrow className="size-6 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-9" />
+                </a>
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <a
+                    href={CV_PDF}
+                    download
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-green transition-all hover:-translate-y-0.5"
+                  >
+                    <IconDownload />
+                    {t.contact.cv}
+                  </a>
+                  <a
+                    href={LINKEDIN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                  >
+                    <IconLinkedIn />
+                    {t.contact.linkedin}
+                  </a>
+                </div>
+                {t.contact.cvNote && <p className="mt-3 text-xs text-white/60">{t.contact.cvNote}</p>}
+              </div>
+              <div className="reveal" style={delay(120)}>
+                <p className="text-sm font-bold tracking-[0.18em] text-white/70 uppercase">{t.contact.moreHeading}</p>
+                <ul className="mt-5 space-y-3">
+                  {t.contact.more.map((m) => (
+                    <li key={m} className="flex gap-3 leading-relaxed text-white/90">
+                      <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-white/60" />
+                      {m}
+                    </li>
+                  ))}
+                  <li className="flex gap-3 leading-relaxed text-white/90">
+                    <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-white/60" />
+                    {t.location}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-green-deep text-white/60">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <p>
+            © 2026 {t.footer}
+          </p>
+          <p>lautarobc.com</p>
+        </div>
+      </footer>
+    </>
+  );
+}
