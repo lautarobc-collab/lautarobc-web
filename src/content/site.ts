@@ -50,6 +50,17 @@ export type Dict = {
   location: string;
   hero: { downloadCv: string; contact: string; linkedin: string; trajectory: string };
   trajectory: string[];
+  cases: {
+    heading: string;
+    intro: string;
+    labels: { problem: string; action: string; result: string };
+    items: { title: string; company: string; problem: string; action: string; result: string }[];
+  };
+  tech: {
+    heading: string;
+    intro: string;
+    items: { title: string; context: string; text: string }[];
+  };
   facts: { value: string; label: string }[];
   profile: { heading: string; paragraphs: string[] };
   experience: {
@@ -106,13 +117,15 @@ export const es: Dict = {
   htmlLang: "es",
   path: "/",
   meta: {
-    title: "Lautaro Barrera Cisterna · F&B Manager · Control de costes y compras",
+    title: "Lautaro Barrera Cisterna · F&B Manager · Operaciones, costes y tecnología",
     description:
       "Más de 10 años en restauración: aperturas, alta gastronomía, hoteles y control de costes. Implantación de TPV y gestión de stock. Málaga.",
     ogAlt: "Lautaro Barrera Cisterna, F&B Manager",
   },
   nav: [
     { id: "perfil", label: "Perfil" },
+    { id: "casos", label: "Casos" },
+    { id: "tecnologia", label: "Tecnología" },
     { id: "experiencia", label: "Experiencia" },
     { id: "competencias", label: "Competencias" },
     { id: "formacion", label: "Formación" },
@@ -120,7 +133,7 @@ export const es: Dict = {
   ],
   langSwitch: { label: "EN", href: "/en", aria: "View in English" },
   name: "Lautaro Barrera Cisterna",
-  title: "F&B Manager · Control de costes y compras",
+  title: "F&B Manager · Operaciones, costes y tecnología",
   location: "Málaga",
   hero: {
     downloadCv: "Descargar CV",
@@ -137,6 +150,60 @@ export const es: Dict = {
     "NH Hotel Group",
     "Palladium Hotel Group",
   ],
+  cases: {
+    heading: "Casos",
+    intro: "Tres proyectos contados como reto, intervención y resultado.",
+    labels: { problem: "El reto", action: "Qué hice", result: "Resultado" },
+    items: [
+      {
+        title: "Del dato disperso al dato útil",
+        company: "Grupo Trocadero · 2024 – 2026",
+        problem: "TPV, stock, reservas y contabilidad funcionaban por separado: había datos valiosos que nadie estaba usando.",
+        action: "Implantación de Ágora TPV en todos los locales, integración con G-Stock, CoverManager y A3, depuración de más de 200 recetas y escandallos y formación de los equipos.",
+        result: "Coste teórico vs. real por local y datos fiables para dirección y para el resto de departamentos.",
+      },
+      {
+        title: "Crecer sin perder el control",
+        company: "Grupo Dani García · 2021 – 2022",
+        problem: "La Gran Familia Mediterránea pasó de menos de 10 a más de 20 restaurantes en año y medio.",
+        action: "Sistemas de costes, inventarios y cierres de mes; facturación automatizada con tSpoonLab y piloto de lectura de albaranes por foto conectado con la contabilidad.",
+        result: "Un método de facturación y cierre que acompañó toda la expansión.",
+      },
+      {
+        title: "Abrir al otro lado del Atlántico",
+        company: "Mercedes-Benz Gourmet Experience · Quito · 2023",
+        problem: "Primer restaurante de Mercedes-Benz en Latinoamérica, con un chef invitado distinto cada mes.",
+        action: "Contratación y formación del equipo de sala desde cero; carta escandallada con tSpoonLab y maridajes para cada chef.",
+        result: "Un equipo local estable, capaz de operar con chefs rotativos y una carta con costes controlados.",
+      },
+    ],
+  },
+  tech: {
+    heading: "Tecnología aplicada a F&B",
+    intro: "La tecnología no como informática, sino como herramienta de control de gestión: menos trabajo manual y mejores decisiones.",
+    items: [
+      {
+        title: "TPV, stock y datos",
+        context: "Grupo Trocadero",
+        text: "Implantación de Ágora TPV como key user e integración con G-Stock, CoverManager y A3. Escandallado masivo con apoyo de IA: más de 200 recetas depuradas o creadas.",
+      },
+      {
+        title: "IA para formar equipos",
+        context: "Grupo Trocadero",
+        text: "Asistente de formación con NotebookLM de Google: procedimientos, manuales, cartas, escandallos y recetarios que cualquier empleado puede consultar, con preguntas y fichas de estudio generadas.",
+      },
+      {
+        title: "Automatización de albaranes",
+        context: "Grupo Dani García",
+        text: "Piloto de lectura de albaranes por foto con tSpoonLab, conectado con Navision y la contabilidad, trabajando junto al equipo de desarrollo.",
+      },
+      {
+        title: "Herramientas propias",
+        context: "Grupo Trocadero",
+        text: "Prototipos desarrollados por iniciativa propia: un back-office para el equipo de RR. HH. y una web conectada a Ágora para publicar las cartas en tiempo real.",
+      },
+    ],
+  },
   facts: [
     { value: "+10", label: "años en restauración" },
     { value: "4", label: "aperturas: Madrid, Ginebra, Quito y Vigo" },
@@ -171,7 +238,7 @@ export const es: Dict = {
         company: "Hoteles Globales Gardenia",
         place: "Fuengirola",
         dates: "May 2024 – Dic 2024",
-        note: "Hotel de 3 estrellas en todo incluido, unas 250 habitaciones.",
+        note: "Hotel de 3 estrellas en todo incluido, unas 250 habitaciones. Contrato fijo discontinuo: el fin de temporada coincidió con mi incorporación a Grupo Trocadero.",
         tags: ["Hotel", "Sala"],
         bullets: [
           "Dirección de sala en 4 puntos de venta: buffet principal (desayuno, comida y cena), buffet de media mañana y merienda, bar de piscina y bar de noche con zona de entretenimiento.",
@@ -201,7 +268,7 @@ export const es: Dict = {
         bullets: [
           "Apertura del **primer restaurante de Mercedes-Benz en Latinoamérica**: contratación, formación del equipo de sala, decoración e inauguración.",
           "Lanzamiento con prensa, televisión, entrevistas e influencers.",
-          "Maridaje, ingeniería de menú y cálculo de costes de carta.",
+          "Maridaje, ingeniería de menú y escandallos de carta con tSpoonLab.",
         ],
       },
       {
@@ -214,7 +281,7 @@ export const es: Dict = {
         bullets: [
           "Control de costes durante la expansión del proyecto: **de menos de 10 a más de 20 restaurantes** en año y medio.",
           "Inventarios y cierres de mes, con un método para facturar y cerrar más de 20 locales a la vez.",
-          "Facturación automatizada junto a Spoonlab; análisis de ventas, procedimientos y logística.",
+          "Facturación automatizada junto a tSpoonLab; análisis de ventas, procedimientos y logística.",
         ],
       },
       {
@@ -286,11 +353,11 @@ export const es: Dict = {
       },
       {
         title: "Tecnología",
-        text: "Implantación de TPV y gestión de stock, integraciones, limpieza de datos e IA aplicada al trabajo.",
+        text: "Implantación de TPV e integraciones, automatización con IA (formación y escandallos), herramientas propias e informes.",
       },
     ],
     systemsTitle: "Herramientas",
-    systems: ["Ágora TPV (key user)", "G-Stock", "CoverManager", "A3", "Microsoft Office"],
+    systems: ["Ágora TPV (key user)", "G-Stock", "tSpoonLab", "CoverManager", "A3", "NotebookLM", "Microsoft Office"],
   },
   education: {
     heading: "Formación",
@@ -343,7 +410,7 @@ export const es: Dict = {
     ],
     sideRole: "F&B MANAGER",
     location: "Málaga",
-    skillsSystems: "Ágora TPV (key user), G-Stock, CoverManager, A3, Microsoft Office, análisis de datos, IA",
+    skillsSystems: "Ágora TPV (key user), G-Stock, tSpoonLab, CoverManager, A3, NotebookLM, Microsoft Office",
   },
   footer: "Lautaro Barrera Cisterna",
 };
@@ -353,13 +420,15 @@ export const en: Dict = {
   htmlLang: "en",
   path: "/en",
   meta: {
-    title: "Lautaro Barrera Cisterna · F&B Manager · Cost Control & Purchasing",
+    title: "Lautaro Barrera Cisterna · F&B Manager · Operations, Cost Control & Technology",
     description:
       "Over 10 years in hospitality: openings, fine dining, hotels and cost control. POS and stock management rollouts. Málaga, Spain.",
     ogAlt: "Lautaro Barrera Cisterna, F&B Manager",
   },
   nav: [
     { id: "profile", label: "Profile" },
+    { id: "cases", label: "Cases" },
+    { id: "technology", label: "Technology" },
     { id: "experience", label: "Experience" },
     { id: "skills", label: "Skills" },
     { id: "education", label: "Education" },
@@ -367,7 +436,7 @@ export const en: Dict = {
   ],
   langSwitch: { label: "ES", href: "/", aria: "Ver en español" },
   name: "Lautaro Barrera Cisterna",
-  title: "F&B Manager · Cost Control & Purchasing",
+  title: "F&B Manager · Operations, Cost Control & Technology",
   location: "Málaga, Spain",
   hero: {
     downloadCv: "Download CV",
@@ -384,6 +453,60 @@ export const en: Dict = {
     "NH Hotel Group",
     "Palladium Hotel Group",
   ],
+  cases: {
+    heading: "Cases",
+    intro: "Three projects told as challenge, action and result.",
+    labels: { problem: "Challenge", action: "What I did", result: "Result" },
+    items: [
+      {
+        title: "From scattered data to useful data",
+        company: "Grupo Trocadero · 2024 – 2026",
+        problem: "POS, stock, reservations and accounting ran separately: valuable data was going unused.",
+        action: "Rollout of Ágora POS across all venues, integration with G-Stock, CoverManager and A3, clean-up of more than 200 recipes and costings, and team training.",
+        result: "Theoretical vs. actual cost per venue and reliable data for management and other departments.",
+      },
+      {
+        title: "Growing without losing control",
+        company: "Grupo Dani García · 2021 – 2022",
+        problem: "La Gran Familia Mediterránea grew from fewer than 10 to more than 20 restaurants in a year and a half.",
+        action: "Cost, inventory and month-end closing systems; automated invoicing with tSpoonLab and a pilot reading delivery notes from photos, connected to accounting.",
+        result: "An invoicing and closing method that kept pace with the whole expansion.",
+      },
+      {
+        title: "Opening across the Atlantic",
+        company: "Mercedes-Benz Gourmet Experience · Quito · 2023",
+        problem: "Mercedes-Benz's first restaurant in Latin America, with a different guest chef every month.",
+        action: "Hiring and training the front-of-house team from scratch; menu costing in tSpoonLab and wine pairings for each chef.",
+        result: "A stable local team able to run with rotating chefs and a cost-controlled menu.",
+      },
+    ],
+  },
+  tech: {
+    heading: "Technology in F&B",
+    intro: "Technology not as IT, but as a management control tool: less manual work and better decisions.",
+    items: [
+      {
+        title: "POS, stock and data",
+        context: "Grupo Trocadero",
+        text: "Rollout of Ágora POS as key user and integration with G-Stock, CoverManager and A3. AI-assisted bulk recipe costing: more than 200 recipes cleaned up or created.",
+      },
+      {
+        title: "AI for team training",
+        context: "Grupo Trocadero",
+        text: "Training assistant built with Google NotebookLM: procedures, manuals, menus, costings and recipe books any employee can query, with generated questions and study cards.",
+      },
+      {
+        title: "Delivery note automation",
+        context: "Grupo Dani García",
+        text: "Pilot reading delivery notes from photos with tSpoonLab, connected to Navision and accounting, working alongside the development team.",
+      },
+      {
+        title: "In-house tools",
+        context: "Grupo Trocadero",
+        text: "Prototypes built on my own initiative: a back-office for the HR team and a website connected to Ágora to publish menus in real time.",
+      },
+    ],
+  },
   facts: [
     { value: "10+", label: "years in hospitality" },
     { value: "4", label: "openings: Madrid, Geneva, Quito and Vigo" },
@@ -418,7 +541,7 @@ export const en: Dict = {
         company: "Hoteles Globales Gardenia",
         place: "Fuengirola",
         dates: "May 2024 – Dec 2024",
-        note: "3-star all-inclusive hotel, around 250 rooms.",
+        note: "3-star all-inclusive hotel, around 250 rooms. Seasonal contract: the end of the season overlapped with my start at Grupo Trocadero.",
         tags: ["Hotel", "Front of house"],
         bullets: [
           "Front-of-house management across 4 outlets: main buffet (breakfast, lunch and dinner), mid-morning and afternoon buffet, pool bar and night bar with entertainment area.",
@@ -448,7 +571,7 @@ export const en: Dict = {
         bullets: [
           "Opening of **Mercedes-Benz's first restaurant in Latin America**: hiring, front-of-house training, decoration and launch.",
           "Launch with press, television, interviews and influencers.",
-          "Wine pairing, menu engineering and menu costing.",
+          "Wine pairing, menu engineering and menu costing in tSpoonLab.",
         ],
       },
       {
@@ -461,7 +584,7 @@ export const en: Dict = {
         bullets: [
           "Cost control through the project's expansion: **from fewer than 10 to more than 20 restaurants** in a year and a half.",
           "Inventories and month-end closing, with a disciplined method to invoice and close more than 20 venues at once.",
-          "Automated invoicing together with Spoonlab; sales analysis, procedures and logistics.",
+          "Automated invoicing together with tSpoonLab; sales analysis, procedures and logistics.",
         ],
       },
       {
@@ -533,11 +656,11 @@ export const en: Dict = {
       },
       {
         title: "Technology",
-        text: "POS and stock management rollouts, integrations, data clean-up and AI applied to daily work.",
+        text: "POS rollouts and integrations, AI automation (training and costing), in-house tools and reporting.",
       },
     ],
     systemsTitle: "Tools",
-    systems: ["Ágora POS (key user)", "G-Stock", "CoverManager", "A3", "Microsoft Office"],
+    systems: ["Ágora POS (key user)", "G-Stock", "tSpoonLab", "CoverManager", "A3", "NotebookLM", "Microsoft Office"],
   },
   education: {
     heading: "Education",
@@ -590,7 +713,7 @@ export const en: Dict = {
     ],
     sideRole: "F&B MANAGER",
     location: "Málaga, Spain",
-    skillsSystems: "Ágora POS (key user), G-Stock, CoverManager, A3, Microsoft Office, data analysis, AI",
+    skillsSystems: "Ágora POS (key user), G-Stock, tSpoonLab, CoverManager, A3, NotebookLM, Microsoft Office",
   },
   footer: "Lautaro Barrera Cisterna",
 };

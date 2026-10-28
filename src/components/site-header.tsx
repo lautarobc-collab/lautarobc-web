@@ -61,7 +61,7 @@ export default function SiteHeader({ nav, langSwitch, cvLabel, cvHref, homeLabel
           <span className="hidden text-[0.95rem] sm:inline">Lautaro Barrera</span>
         </a>
 
-        <nav aria-label="Secciones" className="hidden md:block">
+        <nav aria-label="Secciones" className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {nav.map((n) => (
               <li key={n.id}>

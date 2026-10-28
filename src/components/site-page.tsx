@@ -24,7 +24,7 @@ const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 export default function SitePage({ t }: { t: Dict }) {
   const cvHref = t.locale === "en" ? CV_PDF_EN : CV_PDF;
   const ids = Object.fromEntries(t.nav.map((n, i) => [i, n.id]));
-  const [idProfile, idExperience, idSkills, idEducation, idContact] = [0, 1, 2, 3, 4].map(
+  const [idProfile, idCases, idTech, idExperience, idSkills, idEducation, idContact] = [0, 1, 2, 3, 4, 5, 6].map(
     (i) => ids[i],
   );
 
@@ -196,8 +196,67 @@ export default function SitePage({ t }: { t: Dict }) {
           </dl>
         </section>
 
+        {/* ───────────── Casos ───────────── */}
+        <section id={idCases} className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:pb-28">
+          <h2 className="section-label reveal">{t.cases.heading}</h2>
+          <p className="reveal mt-6 max-w-2xl text-muted">{t.cases.intro}</p>
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {t.cases.items.map((c, i) => (
+              <article
+                key={c.title}
+                className="reveal flex flex-col rounded-2xl border border-stone-line bg-white p-6 transition-shadow duration-300 hover:shadow-[0_24px_48px_-28px_rgba(28,42,46,0.35)]"
+                style={delay(i * 90)}
+              >
+                <p className="text-xs font-bold tracking-[0.14em] text-green uppercase">{c.company}</p>
+                <h3 className="mt-3 text-xl font-bold tracking-tight text-ink">{c.title}</h3>
+                <dl className="mt-5 flex flex-1 flex-col gap-4 text-[0.95rem] leading-relaxed">
+                  <div>
+                    <dt className="text-xs font-bold tracking-wide text-muted uppercase">{t.cases.labels.problem}</dt>
+                    <dd className="mt-1 text-ink/90">{c.problem}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-bold tracking-wide text-muted uppercase">{t.cases.labels.action}</dt>
+                    <dd className="mt-1 text-ink/90">{c.action}</dd>
+                  </div>
+                  <div className="mt-auto rounded-xl bg-accent-soft/45 p-4">
+                    <dt className="text-xs font-bold tracking-wide text-[#7d5219] uppercase">{t.cases.labels.result}</dt>
+                    <dd className="mt-1 font-semibold text-ink">{c.result}</dd>
+                  </div>
+                </dl>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* ───────────── Tecnología ───────────── */}
+        <section id={idTech} className="bg-green-deep text-white">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+            <h2 className="section-label reveal !text-white/80">{t.tech.heading}</h2>
+            <p className="reveal mt-6 max-w-3xl text-2xl leading-snug font-semibold tracking-[-0.02em] sm:text-3xl">
+              {t.tech.intro}
+            </p>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2">
+              {t.tech.items.map((it, i) => (
+                <div
+                  key={it.title}
+                  className="reveal rounded-2xl border border-white/12 bg-white/[0.06] p-7 transition-colors duration-300 hover:bg-white/[0.1]"
+                  style={delay(i * 90)}
+                >
+                  <div className="flex flex-col-reverse items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+                    <h3 className="text-xl font-bold tracking-tight">{it.title}</h3>
+                    <span className="shrink-0 rounded-full bg-accent-soft px-2.5 py-1 text-[0.68rem] font-bold tracking-wide text-green-deep uppercase">
+                      {it.context}
+                    </span>
+                  </div>
+                  <p className="mt-3 leading-relaxed text-white/80">{it.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ───────────── Experiencia ───────────── */}
-        <section id={idExperience} className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:pb-28">
+        <section id={idExperience} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
           <h2 className="section-label reveal">{t.experience.heading}</h2>
 
           <ol className="relative mt-12 space-y-4">
