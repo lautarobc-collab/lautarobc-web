@@ -42,3 +42,4 @@ next-env.d.ts
 
 # CV con teléfono: no se versiona
 /cv-source/out/
+/cv-source/_*.html

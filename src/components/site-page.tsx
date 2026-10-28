@@ -87,14 +87,14 @@ export default function SitePage({ t }: { t: Dict }) {
                 <a
                   href={cvHref}
                   download
-                  className="group inline-flex items-center gap-2 rounded-full bg-green px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-10px_rgba(46,94,78,0.7)] transition-all hover:-translate-y-0.5 hover:bg-green-deep"
+                  className="group inline-flex items-center gap-2 rounded-full bg-green px-4 py-3 text-sm font-semibold text-white sm:px-5 shadow-[0_8px_24px_-10px_rgba(46,94,78,0.7)] transition-all hover:-translate-y-0.5 hover:bg-green-deep"
                 >
                   <IconDownload className="transition-transform group-hover:translate-y-0.5" />
                   {t.hero.downloadCv}
                 </a>
                 <a
                   href={`#${idContact}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-5 py-3 text-sm font-semibold text-ink backdrop-blur transition-all hover:-translate-y-0.5 hover:border-green hover:text-green"
+                  className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-4 py-3 text-sm sm:px-5 font-semibold text-ink backdrop-blur transition-all hover:-translate-y-0.5 hover:border-green hover:text-green"
                 >
                   <IconMail />
                   {t.hero.contact}
@@ -147,12 +147,30 @@ export default function SitePage({ t }: { t: Dict }) {
             </div>
           </section>
 
+          {/* Trayectoria: empresas, en texto */}
+          <div className="relative border-t border-stone-line/80 bg-white/55 backdrop-blur-sm">
+            <div className="hero-in mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 sm:px-6 md:flex-row md:items-center md:gap-8" style={d(560)}>
+              <p className="shrink-0 text-[0.7rem] font-bold tracking-[0.2em] text-green uppercase">
+                {t.hero.trajectory}
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {t.trajectory.map((name) => (
+                  <li
+                    key={name}
+                    className="rounded-full border border-ink/10 bg-white/80 px-3 py-1 text-[0.85rem] font-semibold text-ink/75"
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </BackgroundPaths>
 
         {/* ───────────── Perfil ───────────── */}
         <section id={idProfile} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
           <h2 className="section-label reveal">{t.profile.heading}</h2>
-          <p className="reveal mt-10 max-w-4xl text-2xl leading-snug font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
+          <p className="reveal mt-10 max-w-4xl text-2xl leading-snug font-semibold tracking-[-0.02em] text-ink sm:text-[2rem]">
             {t.profile.paragraphs[1]}
           </p>
           <dl className="reveal mt-12 grid gap-px overflow-hidden rounded-2xl border border-stone-line bg-stone-line sm:grid-cols-3" style={delay(120)}>
@@ -186,14 +204,28 @@ export default function SitePage({ t }: { t: Dict }) {
                   <p className="mt-0.5 text-sm text-muted">{job.place}</p>
                 </div>
                 <article className="group rounded-2xl border border-transparent p-0 transition-all duration-300 md:-mt-4 md:p-6 md:hover:border-stone-line md:hover:bg-stone/60">
-                  <h3 className="text-xl font-bold tracking-tight text-ink">{job.role}</h3>
-                  <p className="mt-0.5 font-semibold text-muted">{job.company}</p>
+                  <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
+                    <div>
+                      <h3 className="text-xl font-bold tracking-tight text-ink">{job.role}</h3>
+                      <p className="mt-0.5 font-semibold text-muted">{job.company}</p>
+                    </div>
+                    <ul className="flex flex-wrap gap-1.5 md:pt-1" aria-label="Etiquetas">
+                      {job.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="rounded-full bg-green-soft px-2.5 py-1 text-[0.7rem] font-bold tracking-wide text-green-deep uppercase"
+                        >
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   {job.note && (
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted italic">{job.note}</p>
+                    <p className="mt-3 max-w-3xl text-[0.95rem] leading-relaxed text-muted">{job.note}</p>
                   )}
                   <ul className="mt-4 space-y-2">
                     {job.bullets.map((b) => (
-                      <li key={b} className="flex gap-3 text-[0.95rem] leading-relaxed text-ink/90">
+                      <li key={b} className="flex max-w-3xl gap-3 text-[0.95rem] leading-relaxed text-ink/90">
                         <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-green" />
                         <span>{b}</span>
                       </li>
@@ -214,13 +246,16 @@ export default function SitePage({ t }: { t: Dict }) {
               </div>
               <article className="rounded-2xl bg-stone p-6 md:-mt-4">
                 <h3 className="text-xl font-bold tracking-tight text-ink">{t.experience.early.heading}</h3>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                <ul className="mt-4 divide-y divide-stone-line">
                   {t.experience.early.items.map((it) => {
-                    const [head, ...rest] = it.split(":");
+                    const idx = it.indexOf(":");
+                    const head = idx > -1 ? it.slice(0, idx) : it;
+                    const raw = idx > -1 ? it.slice(idx + 1).trim() : "";
+                    const rest = raw.charAt(0).toUpperCase() + raw.slice(1);
                     return (
-                      <li key={it} className="rounded-xl bg-white p-4 text-[0.92rem] leading-relaxed">
+                      <li key={it} className="grid gap-1 py-3 text-[0.92rem] leading-relaxed sm:grid-cols-[minmax(0,15rem)_1fr] sm:gap-6">
                         <span className="font-semibold text-ink">{head}</span>
-                        {rest.length > 0 && <span className="text-muted">:{rest.join(":")}</span>}
+                        <span className="text-muted">{rest}</span>
                       </li>
                     );
                   })}
@@ -271,21 +306,29 @@ export default function SitePage({ t }: { t: Dict }) {
 
         {/* ───────────── Formación + Idiomas ───────────── */}
         <section id={idEducation} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-          <div className="grid gap-16 md:grid-cols-2 md:gap-12">
-            <div>
+          <div className="grid gap-12 md:grid-cols-2 md:gap-6">
+            <div className="flex flex-col">
               <h2 className="section-label reveal">{t.education.heading}</h2>
-              <div className="reveal mt-10">
+              <div className="reveal mt-8 flex flex-1 flex-col rounded-2xl border border-stone-line p-7">
                 <p className="text-sm font-bold text-green tabular-nums">{t.education.dates}</p>
                 <h3 className="mt-2 text-2xl font-bold tracking-tight text-ink">{t.education.degree}</h3>
                 <p className="mt-2 font-semibold text-muted">{t.education.school}</p>
-                <p className="mt-4 leading-relaxed text-ink/90">{t.education.detail}</p>
+                <p className="mt-3 leading-relaxed text-ink/90">{t.education.detail}</p>
+                <div className="mt-auto border-t border-stone-line pt-5">
+                  <p className="text-xs font-bold tracking-[0.18em] text-green uppercase">{t.education.ongoingTitle}</p>
+                  <ul className="mt-2 space-y-1">
+                    {t.education.ongoing.map((o) => (
+                      <li key={o} className="text-[0.95rem] text-ink/90">{o}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col">
               <h2 className="section-label reveal">{t.languages.heading}</h2>
-              <ul className="mt-10 space-y-5">
-                {t.languages.items.map((l, i) => (
-                  <li key={l.name} className="reveal" style={delay(i * 70)}>
+              <ul className="reveal mt-8 flex flex-1 flex-col justify-between gap-5 rounded-2xl border border-stone-line p-7">
+                {t.languages.items.map((l) => (
+                  <li key={l.name}>
                     <div className="flex items-baseline justify-between">
                       <span className="font-semibold text-ink">{l.name}</span>
                       <span className="text-sm font-medium text-muted">{l.level}</span>
@@ -335,7 +378,7 @@ export default function SitePage({ t }: { t: Dict }) {
             <h2 className="section-label reveal !text-white/80">{t.contact.heading}</h2>
             <div className="mt-10 grid gap-12 md:grid-cols-[1.3fr_0.7fr]">
               <div className="reveal">
-                <p className="text-sm font-semibold tracking-wide text-white/70">{t.contact.lead}</p>
+                {t.contact.lead && <p className="text-sm font-semibold tracking-wide text-white/70">{t.contact.lead}</p>}
                 <a
                   href={`mailto:${EMAIL}`}
                   className="group mt-4 inline-flex items-center gap-3 text-[1.6rem] font-extrabold tracking-[-0.02em] break-all sm:text-5xl"
@@ -364,7 +407,6 @@ export default function SitePage({ t }: { t: Dict }) {
                     {t.contact.linkedin}
                   </a>
                 </div>
-                {t.contact.cvNote && <p className="mt-3 text-xs text-white/60">{t.contact.cvNote}</p>}
               </div>
               <div className="reveal" style={delay(120)}>
                 <p className="text-sm font-bold tracking-[0.18em] text-white/70 uppercase">{t.contact.moreHeading}</p>
