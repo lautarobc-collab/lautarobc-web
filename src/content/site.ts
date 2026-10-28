@@ -13,6 +13,7 @@ export const EMAIL = "lautarobc@gmail.com";
 export const LINKEDIN =
   "https://www.linkedin.com/in/lautaro-barrera-cisterna-48b484184";
 export const CV_PDF = "/cv/CV-Lautaro-Barrera-Cisterna.pdf";
+export const CV_PDF_EN = "/cv/CV-Lautaro-Barrera-Cisterna-EN.pdf";
 
 export type Job = {
   role: string;
@@ -449,7 +450,6 @@ export const en: Dict = {
     email: "Send an email",
     linkedin: "View LinkedIn profile",
     cv: "Download CV (PDF)",
-    cvNote: "CV in Spanish",
     moreHeading: "Additional information",
     more: [
       "Driving licence and own vehicle.",

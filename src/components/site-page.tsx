@@ -3,12 +3,13 @@ import BackgroundPaths from "./background-paths";
 import RevealObserver from "./reveal-observer";
 import SiteHeader from "./site-header";
 import { IconArrow, IconDownload, IconLinkedIn, IconMail, IconPin } from "./icons";
-import { CV_PDF, EMAIL, LINKEDIN, SITE_URL, type Dict } from "@/content/site";
+import { CV_PDF, CV_PDF_EN, EMAIL, LINKEDIN, SITE_URL, type Dict } from "@/content/site";
 
 const delay = (ms: number) => ({ "--reveal-delay": `${ms}ms` }) as CSSProperties;
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 export default function SitePage({ t }: { t: Dict }) {
+  const cvHref = t.locale === "en" ? CV_PDF_EN : CV_PDF;
   const ids = Object.fromEntries(t.nav.map((n, i) => [i, n.id]));
   const [idProfile, idExperience, idSkills, idEducation, idContact] = [0, 1, 2, 3, 4].map(
     (i) => ids[i],
@@ -38,7 +39,7 @@ export default function SitePage({ t }: { t: Dict }) {
         nav={t.nav}
         langSwitch={t.langSwitch}
         cvLabel="CV"
-        cvHref={CV_PDF}
+        cvHref={cvHref}
         homeLabel={t.name}
       />
       <RevealObserver />
@@ -84,7 +85,7 @@ export default function SitePage({ t }: { t: Dict }) {
 
               <div className="hero-in mt-8 flex flex-wrap items-center gap-3" style={d(400)}>
                 <a
-                  href={CV_PDF}
+                  href={cvHref}
                   download
                   className="group inline-flex items-center gap-2 rounded-full bg-green px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-10px_rgba(46,94,78,0.7)] transition-all hover:-translate-y-0.5 hover:bg-green-deep"
                 >
@@ -346,7 +347,7 @@ export default function SitePage({ t }: { t: Dict }) {
                 </a>
                 <div className="mt-10 flex flex-wrap gap-3">
                   <a
-                    href={CV_PDF}
+                    href={cvHref}
                     download
                     className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-green transition-all hover:-translate-y-0.5"
                   >
