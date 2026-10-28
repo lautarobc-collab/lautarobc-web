@@ -41,8 +41,8 @@ function jobHtml(j: Job) {
 /** CV de diseño a dos columnas, 2 páginas A4. */
 function designHtml(t: Dict, withPhone: boolean) {
   const jobs = t.experience.jobs;
-  const p1 = jobs.slice(0, 4);
-  const p2 = jobs.slice(4);
+  const p1 = jobs.slice(0, 3);
+  const p2 = jobs.slice(3);
   return `<!doctype html><html lang="${t.htmlLang}"><head><meta charset="utf-8"><title>CV ${esc(t.name)}</title><style>${css}</style></head><body>
 <div class="page">
   <aside class="side">
@@ -85,7 +85,7 @@ function designHtml(t: Dict, withPhone: boolean) {
     ${p2.map(jobHtml).join("")}
     <div class="job">
       <div class="job-head"><h4>${esc(t.experience.early.heading)}</h4><span class="dates">${esc(t.experience.early.dates)}</span></div>
-      <ul>${t.experience.early.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
+      <p class="early">${t.experience.early.items.map(esc).join(" · ")}</p>
     </div>
     <h2 class="ruled" style="margin-top:6mm">${esc(t.cv.education)}</h2>
     <div class="job">
@@ -105,13 +105,13 @@ function atsHtml(t: Dict) {
   const h = (s: string) => `<h2>${esc(s)}</h2>`;
   return `<!doctype html><html lang="${t.htmlLang}"><head><meta charset="utf-8"><title>CV ${esc(t.name)}</title><style>
   @font-face{font-family:Manrope;src:url("../node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2") format("woff2");font-weight:200 800}
-  @page{size:A4;margin:12mm 15mm}
+  @page{size:A4;margin:11mm 14mm}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Manrope,Arial,sans-serif;color:#1c2a2e;font-size:9.1pt;line-height:1.36}
+  body{font-family:Manrope,Arial,sans-serif;color:#1c2a2e;font-size:8.9pt;line-height:1.34}
   h1{font-size:20pt;font-weight:800;letter-spacing:-.01em}
   .title{font-size:10.5pt;font-weight:700;color:#2E5E4E;margin-top:1mm}
   .contact{margin-top:2mm;font-size:9.5pt}
-  h2{font-size:10.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#2E5E4E;border-bottom:.3mm solid #2E5E4E;padding-bottom:1mm;margin:4mm 0 2mm}
+  h2{font-size:10.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#2E5E4E;border-bottom:.3mm solid #2E5E4E;padding-bottom:1mm;margin:3.4mm 0 1.6mm}
   .job{margin-bottom:2.6mm;break-inside:avoid}
   .job h3{font-size:10pt;font-weight:700}
   .meta{font-size:9pt;color:#4f5b5a}
@@ -144,7 +144,7 @@ ${h(t.cv.skills)}
 ${h(t.cv.languages)}
 <p>${t.languages.items.map((l) => `${esc(l.name)}: ${esc(l.level)}`).join(" | ")}</p>
 ${h(t.cv.more)}
-<ul>${t.cv.moreItems.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
+<p>${t.cv.moreItems.map(esc).join(" ")}</p>
 </body></html>`;
 }
 

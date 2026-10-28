@@ -83,3 +83,10 @@
   .subtitle { margin-top: 3.5mm; padding-bottom: 4.5mm; }
   .profile p { font-size: 9.2pt; line-height: 1.45; margin-bottom: 1.8mm; }
   .main { padding-bottom: 14mm; }
+
+  .early { font-size: 8.5pt; line-height: 1.42; margin-top: 1.2mm; color: var(--ink); }
+
+  .job { margin-bottom: 3.1mm; }
+  .main h2.ruled { margin-bottom: 4mm; }
+
+  .main { position: static; }

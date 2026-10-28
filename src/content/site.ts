@@ -146,7 +146,7 @@ export const es: Dict = {
     heading: "Perfil",
     paragraphs: [
       "Más de 10 años en restauración uniendo operación, control del margen y tecnología en hoteles, alta gastronomía, beach clubs y delivery.",
-      "Mi terreno son las aperturas y la alta gastronomía. Mi diferencia: convertir los datos en decisiones. Implanto e integro TPV y gestión de stock, y doy a los equipos herramientas sencillas —una fórmula, un atajo, una tabla dinámica— que les ahorran tiempo cada día.",
+      "Mi terreno son las aperturas y la alta gastronomía, como puente entre la cocina y los números: el equipo aporta la creación y yo le pongo coste, rentabilidad y un lugar en una carta equilibrada. Además, implanto e integro TPV y gestión de stock para que los datos lleguen a quien decide.",
     ],
   },
   experience: {
@@ -184,12 +184,12 @@ export const es: Dict = {
         company: "Proyectos independientes",
         place: "Vigo y Madrid",
         dates: "2023 – 2024",
-        note: "Asesorías a restaurantes, en paralelo a mi formación en diseño UX.",
-        tags: ["Apertura", "Asesoría"],
+        note: "Asesorías junto al chef Miguel Fernández Vida, además de ferias gastronómicas y formación en diseño UX.",
+        tags: ["Apertura", "Asesoría", "Control de costes"],
         bullets: [
-          "Apertura de Voltarei, restaurante de cocina gallega en Vigo.",
-          "Asesoría a un restaurante en Madrid.",
-          "Ferias gastronómicas junto al chef Miguel Fernández Vida.",
+          "Voltarei (Vigo): concepto de cocina gallega tradicional para tapear y compartir, con un aire más moderno. Diseño de menús, escandallos y sistema de control de costes.",
+          "Voltarei: formación del equipo de cocina y formación digital; apoyo en las sesiones de fotos para la carta digital y el marketing.",
+          "La Florería (calle Ponzano, Madrid): recetario y control de costes sobre la herramienta de escandallos del chef, para renovar la carta y mejorar el beneficio.",
         ],
       },
       {
@@ -394,7 +394,7 @@ export const en: Dict = {
     heading: "Profile",
     paragraphs: [
       "Over 10 years in hospitality bringing together operations, margin control and technology across hotels, fine dining, beach clubs and delivery.",
-      "My ground is openings and fine dining. My edge: turning data into decisions. I roll out and integrate POS and stock management systems, and give teams simple tools — a formula, a shortcut, a pivot table — that save them time every day.",
+      "My ground is openings and fine dining, as the bridge between the kitchen and the numbers: the team brings the creativity, and I add cost, profitability and a place on a balanced menu. I also roll out and integrate POS and stock management systems so that data reaches the people who make decisions.",
     ],
   },
   experience: {
@@ -432,12 +432,12 @@ export const en: Dict = {
         company: "Independent projects",
         place: "Vigo and Madrid",
         dates: "2023 – 2024",
-        note: "Restaurant consulting, alongside my UX design studies.",
-        tags: ["Opening", "Consulting"],
+        note: "Consulting alongside chef Miguel Fernández Vida, plus food fairs and UX design studies.",
+        tags: ["Opening", "Consulting", "Cost control"],
         bullets: [
-          "Opening of Voltarei, a Galician restaurant in Vigo.",
-          "Consulting for a restaurant in Madrid.",
-          "Food fairs alongside chef Miguel Fernández Vida.",
+          "Voltarei (Vigo): traditional Galician cuisine for tapas and sharing, with a more modern touch. Menu design, recipe costing and cost control system.",
+          "Voltarei: kitchen team and digital training; support for the photo shoots for the digital menu and marketing.",
+          "La Florería (Calle Ponzano, Madrid): recipe book and cost control built on the chef's own costing tool, to refresh the menu and improve profit.",
         ],
       },
       {
