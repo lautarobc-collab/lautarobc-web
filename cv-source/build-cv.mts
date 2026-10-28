@@ -21,6 +21,10 @@ mkdirSync(resolve(here, "out"), { recursive: true });
 const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+/** **texto** → negrita en el CV de diseño; sin marcas en el ATS. */
+const strong = (s: string) => esc(s).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+const plain = (s: string) => esc(s).replace(/\*\*([^*]+)\*\*/g, "$1");
+
 const icon = {
   phone: `<svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>`,
   mail: `<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
@@ -34,7 +38,7 @@ function jobHtml(j: Job) {
     <div class="job-head"><h4>${esc(j.role)}</h4><span class="dates">${esc(j.dates)}</span></div>
     <p class="company">${esc(j.company)} · ${esc(j.place)}</p>
     ${j.note ? `<p class="note">${esc(j.note)}</p>` : ""}
-    <ul>${j.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+    <ul>${j.bullets.map((b) => `<li>${strong(b)}</li>`).join("")}</ul>
   </div>`;
 }
 
@@ -87,7 +91,7 @@ function designHtml(t: Dict, withPhone: boolean) {
       <div class="job-head"><h4>${esc(t.experience.early.heading)}</h4><span class="dates">${esc(t.experience.early.dates)}</span></div>
       <p class="early">${t.experience.early.items.map(esc).join(" · ")}</p>
     </div>
-    <h2 class="ruled" style="margin-top:6mm">${esc(t.cv.education)}</h2>
+    <h2 class="ruled" style="margin-top:3.5mm">${esc(t.cv.education)}</h2>
     <div class="job">
       <div class="job-head"><h4>${esc(t.education.degree)}</h4><span class="dates">${esc(t.education.dates)}</span></div>
       <p class="company">${esc(t.education.school)}</p>
@@ -130,7 +134,7 @@ ${t.experience.jobs
     (j) => `<div class="job"><h3>${esc(j.role)} | ${esc(j.company)}</h3>
 <p class="meta">${esc(j.place)} | ${esc(j.dates)}</p>
 ${j.note ? `<p class="meta">${esc(j.note)}</p>` : ""}
-<ul>${j.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul></div>`,
+<ul>${j.bullets.map((b) => `<li>${plain(b)}</li>`).join("")}</ul></div>`,
   )
   .join("")}
 <div class="job"><h3>${esc(t.experience.early.heading)}</h3><p class="meta">${esc(t.experience.early.dates)}</p>

@@ -5,6 +5,19 @@ import SiteHeader from "./site-header";
 import { IconArrow, IconDownload, IconLinkedIn, IconMail, IconPin } from "./icons";
 import { CV_PDF, CV_PDF_EN, EMAIL, LINKEDIN, SITE_URL, type Dict } from "@/content/site";
 
+/** Convierte **texto** en un resaltado tipo rotulador. */
+function rich(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") ? (
+      <mark key={i} className="hl">
+        {part.slice(2, -2)}
+      </mark>
+    ) : (
+      part
+    ),
+  );
+}
+
 const delay = (ms: number) => ({ "--reveal-delay": `${ms}ms` }) as CSSProperties;
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
@@ -47,14 +60,14 @@ export default function SitePage({ t }: { t: Dict }) {
       <main id="top">
         {/* ───────────── Hero ───────────── */}
         <BackgroundPaths
-          className="bg-stone text-green/75"
+          className="bg-stone text-green/40 md:text-green/75"
           count={32}
           angle={-6}
           speed={0.55}
           spread={0.9}
         >
           <section className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-28 pb-16 sm:px-6 md:min-h-[88svh] md:grid-cols-[1.25fr_0.75fr] md:pt-28 md:pb-16">
-            <div className="order-2 md:order-1">
+            <div className="order-2 -mx-4 rounded-2xl bg-stone/75 px-4 py-5 backdrop-blur-[3px] md:order-1 md:mx-0 md:bg-transparent md:p-0 md:backdrop-blur-none">
               <p
                 className="hero-in text-[0.7rem] font-bold tracking-[0.2em] text-green uppercase sm:text-xs"
                 style={d(80)}
@@ -70,7 +83,7 @@ export default function SitePage({ t }: { t: Dict }) {
                 Barrera Cisterna
               </h1>
               <p
-                className="hero-in mt-6 max-w-xl text-lg leading-relaxed text-muted"
+                className="hero-in mt-6 max-w-xl text-lg leading-relaxed text-ink/75"
                 style={d(260)}
               >
                 {t.profile.paragraphs[0]}
@@ -176,7 +189,7 @@ export default function SitePage({ t }: { t: Dict }) {
           <dl className="reveal mt-12 grid gap-px overflow-hidden rounded-2xl border border-stone-line bg-stone-line sm:grid-cols-3" style={delay(120)}>
             {t.facts.map((f) => (
               <div key={f.label} className="flex items-baseline gap-3 bg-white px-5 py-5">
-                <dt className="text-4xl font-extrabold tracking-tight text-green">{f.value}</dt>
+                <dt className="text-4xl font-extrabold tracking-tight text-accent">{f.value}</dt>
                 <dd className="text-sm leading-snug text-muted">{f.label}</dd>
               </div>
             ))}
@@ -227,7 +240,7 @@ export default function SitePage({ t }: { t: Dict }) {
                     {job.bullets.map((b) => (
                       <li key={b} className="flex max-w-3xl gap-3 text-[0.95rem] leading-relaxed text-ink/90">
                         <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-green" />
-                        <span>{b}</span>
+                        <span>{rich(b)}</span>
                       </li>
                     ))}
                   </ul>

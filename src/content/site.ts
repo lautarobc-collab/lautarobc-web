@@ -26,7 +26,7 @@ export type Job = {
   note?: string;
   /** Etiquetas para lectura rápida. */
   tags: string[];
-  /** 3-4 viñetas, orientadas a lo que se consiguió. */
+  /** 3-4 viñetas, orientadas a lo que se consiguió. **texto** = resaltado (máx. 1 por puesto). */
   bullets: string[];
 };
 
@@ -160,7 +160,7 @@ export const es: Dict = {
         note: "Restauración premium y beach clubs: varios locales y obrador central. Equipo de operaciones, con reporte a dirección general.",
         tags: ["Multi-local", "Control de costes", "Tecnología"],
         bullets: [
-          "Implantación de Ágora TPV en todos los locales como key user: desde la decisión y la puesta en marcha hasta el soporte técnico posterior.",
+          "**Implantación de Ágora TPV en todos los locales** como key user: desde la decisión y la puesta en marcha hasta el soporte técnico posterior.",
           "Integración con G-Stock, CoverManager y A3 y depuración de la base de datos de ingredientes y recetas: datos reales que antes no se aprovechaban, integrados en el trabajo de cada departamento.",
           "Food & beverage cost por local: coste teórico vs. real, desviaciones y acciones correctoras; escandallos con cocina (I+D) e ingeniería de menú.",
           "Cierres de mes y control de compras: inventarios, albaranes, facturas y homologación de proveedores.",
@@ -174,7 +174,7 @@ export const es: Dict = {
         note: "Hotel de 3 estrellas en todo incluido, unas 250 habitaciones.",
         tags: ["Hotel", "Sala"],
         bullets: [
-          "Dirección de sala en 4 puntos de venta: buffet (desayuno, comida, cena, media mañana y merienda), bar de piscina y bar de noche con zona de entretenimiento.",
+          "Dirección de sala en 4 puntos de venta: buffet principal (desayuno, comida y cena), buffet de media mañana y merienda, bar de piscina y bar de noche con zona de entretenimiento.",
           "Pedidos, inventarios y control de costes.",
           "Atención al cliente y resolución de incidencias.",
         ],
@@ -184,11 +184,10 @@ export const es: Dict = {
         company: "Proyectos independientes",
         place: "Vigo y Madrid",
         dates: "2023 – 2024",
-        note: "Asesorías junto al chef Miguel Fernández Vidal, además de ferias gastronómicas y formación en diseño UX.",
+        note: "Asesorías y ferias gastronómicas junto al chef Miguel Fernández Vidal (Restaurante Morgana).",
         tags: ["Apertura", "Asesoría", "Control de costes"],
         bullets: [
-          "Voltarei (Vigo): concepto de cocina gallega tradicional para tapear y compartir, con un aire más moderno. Diseño de menús, escandallos y sistema de control de costes.",
-          "Voltarei: formación del equipo de cocina y formación digital; apoyo en las sesiones de fotos para la carta digital y el marketing.",
+          "**Apertura de Voltarei (Vigo)**, cocina gallega tradicional para tapear y compartir con un aire más moderno: diseño de menús, escandallos, sistema de control de costes, formación del equipo de cocina y apoyo en las fotos para la carta digital y el marketing.",
           "La Florería (calle Ponzano, Madrid): recetario y control de costes sobre la herramienta de escandallos del chef, para renovar la carta y mejorar el beneficio.",
         ],
       },
@@ -200,7 +199,7 @@ export const es: Dict = {
         note: "Restaurante gastronómico pop-up con un chef invitado distinto cada mes y un equipo estable en Quito.",
         tags: ["Apertura", "Alta gastronomía"],
         bullets: [
-          "Apertura del primer restaurante de Mercedes-Benz en Latinoamérica: contratación, formación del equipo de sala, decoración e inauguración.",
+          "Apertura del **primer restaurante de Mercedes-Benz en Latinoamérica**: contratación, formación del equipo de sala, decoración e inauguración.",
           "Lanzamiento con prensa, televisión, entrevistas e influencers.",
           "Maridaje, ingeniería de menú y cálculo de costes de carta.",
         ],
@@ -213,8 +212,8 @@ export const es: Dict = {
         note: "Proyecto de delivery La Gran Familia Mediterránea.",
         tags: ["Multi-local", "Control de costes", "Delivery"],
         bullets: [
-          "Control de costes durante la expansión del proyecto: de menos de 10 a más de 20 restaurantes en año y medio.",
-          "Sistemas de control de costes, inventarios y cierres de mes, con método para facturar y cerrar decenas de locales a la vez.",
+          "Control de costes durante la expansión del proyecto: **de menos de 10 a más de 20 restaurantes** en año y medio.",
+          "Inventarios y cierres de mes, con un método para facturar y cerrar más de 20 locales a la vez.",
           "Facturación automatizada junto a Spoonlab; análisis de ventas, procedimientos y logística.",
         ],
       },
@@ -236,11 +235,11 @@ export const es: Dict = {
         company: "Restaurante Morgana",
         place: "Madrid",
         dates: "Sep 2017 – Feb 2019",
-        note: "Cocina gallega de fusión en Chueca, con el chef Miguel Fernández Vidal.",
+        note: "Cocina gallega de fusión en Chueca (Madrid).",
         tags: ["Apertura", "Sala y barra"],
         bullets: [
           "Primer empleado: apertura y puesta en marcha, cubriendo todas las posiciones.",
-          "N.º 1 de Tripadvisor en Madrid durante el primer año, con lista de espera constante.",
+          "**N.º 1 de Tripadvisor en Madrid** durante el primer año, con lista de espera constante.",
           "Dirección de sala y barra, reservas y control de existencias.",
         ],
       },
@@ -408,7 +407,7 @@ export const en: Dict = {
         note: "Premium dining and beach clubs: several venues and a central production kitchen. Operations team, reporting to general management.",
         tags: ["Multi-venue", "Cost control", "Technology"],
         bullets: [
-          "Rollout of Ágora POS across all venues as key user: from the decision and go-live to ongoing technical support.",
+          "**Rollout of Ágora POS across all venues** as key user: from the decision and go-live to ongoing technical support.",
           "Integration with G-Stock, CoverManager and A3 and clean-up of the ingredient and recipe database: actual data that was previously unused, built into every department's work.",
           "Food & beverage cost per venue: theoretical vs. actual cost, variances and corrective actions; recipe costing with the kitchen (R&D) and menu engineering.",
           "Month-end closing and purchasing control: inventories, delivery notes, invoices and supplier approval.",
@@ -422,7 +421,7 @@ export const en: Dict = {
         note: "3-star all-inclusive hotel, around 250 rooms.",
         tags: ["Hotel", "Front of house"],
         bullets: [
-          "Front-of-house management across 4 outlets: buffet (breakfast, lunch, dinner, mid-morning and afternoon), pool bar and night bar with entertainment area.",
+          "Front-of-house management across 4 outlets: main buffet (breakfast, lunch and dinner), mid-morning and afternoon buffet, pool bar and night bar with entertainment area.",
           "Ordering, inventories and cost control.",
           "Guest service and incident resolution.",
         ],
@@ -432,11 +431,10 @@ export const en: Dict = {
         company: "Independent projects",
         place: "Vigo and Madrid",
         dates: "2023 – 2024",
-        note: "Consulting alongside chef Miguel Fernández Vidal, plus food fairs and UX design studies.",
+        note: "Consulting and food fairs alongside chef Miguel Fernández Vidal (Restaurante Morgana).",
         tags: ["Opening", "Consulting", "Cost control"],
         bullets: [
-          "Voltarei (Vigo): traditional Galician cuisine for tapas and sharing, with a more modern touch. Menu design, recipe costing and cost control system.",
-          "Voltarei: kitchen team and digital training; support for the photo shoots for the digital menu and marketing.",
+          "**Opening of Voltarei (Vigo)**, traditional Galician cuisine for tapas and sharing with a more modern touch: menu design, recipe costing, cost control system, kitchen team training and support for the digital menu and marketing photo shoots.",
           "La Florería (Calle Ponzano, Madrid): recipe book and cost control built on the chef's own costing tool, to refresh the menu and improve profit.",
         ],
       },
@@ -448,7 +446,7 @@ export const en: Dict = {
         note: "Fine-dining pop-up with a different guest chef every month and a permanent team in Quito.",
         tags: ["Opening", "Fine dining"],
         bullets: [
-          "Opening of Mercedes-Benz's first restaurant in Latin America: hiring, front-of-house training, decoration and launch.",
+          "Opening of **Mercedes-Benz's first restaurant in Latin America**: hiring, front-of-house training, decoration and launch.",
           "Launch with press, television, interviews and influencers.",
           "Wine pairing, menu engineering and menu costing.",
         ],
@@ -461,8 +459,8 @@ export const en: Dict = {
         note: "La Gran Familia Mediterránea delivery project.",
         tags: ["Multi-venue", "Cost control", "Delivery"],
         bullets: [
-          "Cost control through the project's expansion: from fewer than 10 to more than 20 restaurants in a year and a half.",
-          "Cost control, inventory and month-end closing systems, with a disciplined method to invoice and close dozens of venues at once.",
+          "Cost control through the project's expansion: **from fewer than 10 to more than 20 restaurants** in a year and a half.",
+          "Inventories and month-end closing, with a disciplined method to invoice and close more than 20 venues at once.",
           "Automated invoicing together with Spoonlab; sales analysis, procedures and logistics.",
         ],
       },
@@ -484,11 +482,11 @@ export const en: Dict = {
         company: "Restaurante Morgana",
         place: "Madrid",
         dates: "Sep 2017 – Feb 2019",
-        note: "Galician fusion cuisine in Chueca, with chef Miguel Fernández Vidal.",
+        note: "Galician fusion cuisine in Chueca (Madrid).",
         tags: ["Opening", "Floor and bar"],
         bullets: [
           "First employee: opening and launch, covering every position.",
-          "No. 1 on Tripadvisor in Madrid during the first year, with a constant waiting list.",
+          "**No. 1 on Tripadvisor in Madrid** during the first year, with a constant waiting list.",
           "Front-of-house and bar management, reservations and stock control.",
         ],
       },

@@ -90,3 +90,5 @@
   .main h2.ruled { margin-bottom: 4mm; }
 
   .main { position: static; }
+
+  .job li b { font-weight: 700; color: var(--ink); }

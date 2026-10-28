@@ -6,6 +6,8 @@
   --color-green-soft: #e3ece8;
   --color-stone: #f3f1ec;
   --color-stone-line: #e2ded5;
+  --color-accent: #b07a35;
+  --color-accent-soft: #e8cc9f;
   --color-ink: #1c2a2e;
   --color-muted: #5a6866;
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
@@ -99,4 +101,14 @@ body {
     transform: none !important;
     transition: none !important;
   }
+}
+
+/* Resaltado tipo rotulador para logros clave (texto en tinta para mantener el contraste) */
+.hl {
+  background: linear-gradient(transparent 58%, var(--color-accent-soft) 58%);
+  color: inherit;
+  font-weight: 600;
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
